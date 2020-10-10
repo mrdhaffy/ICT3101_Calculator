@@ -44,7 +44,7 @@ namespace ICT3101_Calculator
                 case "z":
                     result = FailureIntensity(num1, num2);
                     break;
-                case "q":
+                case "b":
                     result = AvgFailureIntensity(num1, num2);
                     break;
                 // Return text for an incorrect option entry.
