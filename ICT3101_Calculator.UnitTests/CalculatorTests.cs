@@ -57,6 +57,14 @@ namespace ICT3101_Calculator.UnitTests
             //Assert.That(() => result, Is.EqualTo(0));
             Assert.That(() => _calculator.AreaCircle(a), Throws.ArgumentException);
         }
+        [Test]
+        [TestCase(3)]
+        public void GenMagicNum_WithNegativeInputs_ResultThrownArgumentException(double a)
+        {
+            IFileReader fileReader = new FileReader();
+            double result = _calculator.GenMagicNum(a, fileReader);
+            Assert.That(result, Is.EqualTo(8));
+        }
 
     //    //------------------------------------------18a-------------------------------------------
     //    [Test]
@@ -98,44 +106,44 @@ namespace ICT3101_Calculator.UnitTests
     //        Assert.That(() => _calculator.UnknownFunctionA(4, 5), Throws.ArgumentException); //unsure
     //    }
 
-    //    //------------------------------------------18a-------------------------------------------
-    //    [Test]
-    //    public void UnknownFunctionB_WhenGivenTest0_Result()
-    //    {
-    //        // Act
-    //        double result = _calculator.Divide(5, 5);
-    //        // Assert
-    //        Assert.That(result, Is.EqualTo(1));
-    //    }
-    //    [Test]
-    //    public void UnknownFunctionB_WhenGivenTest1_Result()
-    //    {
-    //        // Act
-    //        double result = _calculator.UnknownFunctionB(5, 4); //unsure
-    //        // Assert
-    //        Assert.That(result, Is.EqualTo(5));
-    //    }
-    //    [Test]
-    //    public void UnknownFunctionB_WhenGivenTest2_Result()
-    //    {
-    //        // Act
-    //        double result = _calculator.UnknownFunctionB(5, 3); //unsure
-    //        // Assert
-    //        Assert.That(result, Is.EqualTo(10));
-    //    }
-    //    [Test]
-    //    public void UnknownFunctionB_WhenGivenTest3_ResultThrowArgumnetException()
-    //    {
-    //        // Act
-    //        // Assert
-    //        Assert.That(() => _calculator.Factorial(-4), Throws.ArgumentException); //removed 2nd param to match function written (5)
-    //    }
-    //    [Test]
-    //    public void UnknownFunctionB_WhenGivenTest4_ResultThrowArgumnetException()
-    //    {
-    //        // Act
-    //        // Assert
-    //        Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException); //unsure
-    //    }
+        //    //------------------------------------------18a-------------------------------------------
+        //    [Test]
+        //    public void UnknownFunctionB_WhenGivenTest0_Result()
+        //    {
+        //        // Act
+        //        double result = _calculator.Divide(5, 5);
+        //        // Assert
+        //        Assert.That(result, Is.EqualTo(1));
+        //    }
+        //    [Test]
+        //    public void UnknownFunctionB_WhenGivenTest1_Result()
+        //    {
+        //        // Act
+        //        double result = _calculator.UnknownFunctionB(5, 4); //unsure
+        //        // Assert
+        //        Assert.That(result, Is.EqualTo(5));
+        //    }
+        //    [Test]
+        //    public void UnknownFunctionB_WhenGivenTest2_Result()
+        //    {
+        //        // Act
+        //        double result = _calculator.UnknownFunctionB(5, 3); //unsure
+        //        // Assert
+        //        Assert.That(result, Is.EqualTo(10));
+        //    }
+        //    [Test]
+        //    public void UnknownFunctionB_WhenGivenTest3_ResultThrowArgumnetException()
+        //    {
+        //        // Act
+        //        // Assert
+        //        Assert.That(() => _calculator.Factorial(-4), Throws.ArgumentException); //removed 2nd param to match function written (5)
+        //    }
+        //    [Test]
+        //    public void UnknownFunctionB_WhenGivenTest4_ResultThrowArgumnetException()
+        //    {
+        //        // Act
+        //        // Assert
+        //        Assert.That(() => _calculator.UnknownFunctionB(4, 5), Throws.ArgumentException); //unsure.
+        //    }
     }
 }

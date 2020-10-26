@@ -47,6 +47,8 @@ namespace ICT3101_Calculator
                 Console.WriteLine("\tx - MTBF");
                 Console.WriteLine("\ty - Availability");
                 Console.WriteLine("\tz - Failure Intensity");
+                Console.WriteLine("\tb - Average Failure Intensity");
+                Console.WriteLine("\tl - gimme tiddies");
                 Console.Write("Your option? ");
                 string op = Console.ReadLine();
                 try

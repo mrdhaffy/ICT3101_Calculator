@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Moq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace ICT3101_Calculator
 {
     public class Calculator
     {
+        public IFileReader fileReader = new FileReader();
+
         public Calculator() { }
         public double DoOperation(double num1, double num2, string op)
         {
@@ -48,10 +51,19 @@ namespace ICT3101_Calculator
                     result = AvgFailureIntensity(num1, num2);
                     break;
                 // Return text for an incorrect option entry.
+                case "l":
+                    result = GenMagicNum(num1, fileReader);
+                    break;
+
                 default:
                     break;
             }
             return result;
+        }
+
+        internal double GenMagicNum(double a, Mock<IFileReader> mockFileReader)
+        {
+            throw new NotImplementedException();
         }
 
         public double AvgFailureIntensity(double num1, double num2)
@@ -139,6 +151,22 @@ namespace ICT3101_Calculator
         public double Availability(double num1, double num2)
         {
             return Divide(num1, num2);
+        }
+
+        public double GenMagicNum(double input, IFileReader fileReader)
+        {
+            double result = 0;
+            int choice = Convert.ToInt16(input);
+            //Dependency------------------------------
+            //FileReader getTheMagic = new FileReader();
+            //----------------------------------------
+            string[] magicStrings = fileReader.Read("C:/Users/hafiz/source/repos/ICT3101_Calculator/ICT3101_Calculator/MagicNumbers.txt");
+            if ((choice >= 0) && (choice < magicStrings.Length))
+            {
+                result = Convert.ToDouble(magicStrings[choice]);
+            }
+            result = (result > 0) ? (2 * result) : (-2 * result);
+            return result;
         }
     }
 }
